@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/shaders">
+        <file>test1.vsh</file>
+        <file>test1.fsh</file>
+        <file>gouraud.vsh</file>
+        <file>gouraud.fsh</file>
+        <file>phong.fsh</file>
+        <file>phong.vsh</file>
+        <file>blinn.fsh</file>
+        <file>gauss.fsh</file>
+        <file>lambert.fsh</file>
+        <file>cook-torrance.fsh</file>
+        <file>cook-torr.fsh</file>
+        <file>cook-torr.vsh</file>
+        <file>ambient.vsh</file>
+    </qresource>
+    <qresource prefix="/models">
+        <file>plane.obj</file>
+        <file>box.obj</file>
+        <file>cylinder.obj</file>
+        <file>arrow.obj</file>
+        <file>sphere.obj</file>
+        <file>sphere5.obj</file>
+    </qresource>
+</RCC>
