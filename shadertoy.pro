@@ -32,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
+    MyGLWidget.h \
         renderer.h \
     Vec2SpinBox.h \
     circle.h

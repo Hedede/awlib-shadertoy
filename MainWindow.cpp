@@ -1,8 +1,9 @@
 #include "MainWindow.h"
-#include <QOpenGLWidget>
+
+#include "MyGLWidget.h"
+#include "Vec2SpinBox.h"
+
 #include <QSurfaceFormat>
-#include <renderer.h>
-#include <QTimer>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QComboBox>
@@ -14,49 +15,8 @@
 #include <QLabel>
 #include <QCheckBox>
 #include <QSlider>
+
 #include <iostream>
-#include <Vec2SpinBox.h>
-
-struct MyGLWidget : QOpenGLWidget {
-	MyGLWidget( QWidget* parent )
-	        : QOpenGLWidget( parent )
-	{
-		QSurfaceFormat fmt;
-		fmt.setVersion( 3, 3 );
-		fmt.setRenderableType(QSurfaceFormat::OpenGL);
-		fmt.setProfile( QSurfaceFormat::CoreProfile );
-		fmt.setSamples( 16 );
-		QSurfaceFormat::setDefaultFormat( fmt );
-		setFormat( fmt );
-	}
-	void initializeGL() override
-	{
-		graphics::load();
-		graphics::initialize();
-	}
-
-	void resizeGL(int w, int h) override
-	{
-		graphics::reshape(w, h);
-	}
-
-	void paintGL() override
-	{
-		graphics::clear();
-		graphics::render();
-	}
-
-public slots:
-	void render()
-	{
-		graphics::update();
-		update();
-	}
-
-private:
-	QTimer timer;
-
-};
 
 MainWindow::MainWindow(QWidget *parent)
         : QMainWindow(parent)
