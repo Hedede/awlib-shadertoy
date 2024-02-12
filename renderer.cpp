@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string_view>
-#include <chrono>
+#include "renderer.h"
 #include <aw/graphics/gl/api/gl_33.h>
 #include <aw/graphics/gl/awgl/shader_func.h>
 #include <aw/graphics/gl/utility/program_loader.h>
@@ -13,7 +10,10 @@
 #include <aw/math/transform.h>
 #include <aw/io/input_memory_stream.h>
 #include <aw/math/matrix4.h>
-#include <renderer.h>
+#include <iostream>
+#include <vector>
+#include <string_view>
+#include <chrono>
 #include <QFile>
 #include <QDebug>
 #include <fstream>
