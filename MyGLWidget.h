@@ -17,11 +17,13 @@ struct MyGLWidget : QOpenGLWidget {
         fmt.setSamples( 16 );
         QSurfaceFormat::setDefaultFormat( fmt );
         setFormat( fmt );
+        connect(&timer, &QTimer::timeout, this, &MyGLWidget::render);
     }
     void initializeGL() override
     {
         graphics::load();
         graphics::initialize();
+        timer.start(16); // Approximately 60 FPS
     }
 
     void resizeGL(int w, int h) override

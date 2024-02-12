@@ -43,7 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
 		v->setMaximum( max );
 		v->setValue(r);
 		connect( v, qOverload<double>(&QDoubleSpinBox::valueChanged), [&] (double v) { r = v; });
-		connect( v, qOverload<double>(&QDoubleSpinBox::valueChanged), ogl, &MyGLWidget::render);
 		return v;
 	};
 
@@ -57,7 +56,6 @@ MainWindow::MainWindow(QWidget *parent)
 		v->setWrapping(true);
 		v->setValue(r);
 		connect( v, qOverload<double>(&QDoubleSpinBox::valueChanged), [&] (double v) { r = v; });
-		connect( v, qOverload<double>(&QDoubleSpinBox::valueChanged), ogl, &MyGLWidget::render);
 		return v;
 	};
 	using namespace graphics;
@@ -85,7 +83,6 @@ MainWindow::MainWindow(QWidget *parent)
 		light.r = color.redF();
 		light.g = color.greenF();
 		light.b = color.blueF();
-		ogl->render();
 	};
 	connect(color_btn, &QPushButton::clicked, on_click);
 	connect(dialog, &QColorDialog::colorSelected, on_color_changed);
@@ -132,10 +129,10 @@ MainWindow::MainWindow(QWidget *parent)
     input_layout->addWidget(new QLabel("<b>Objects</b>"));
 	auto chb1 = new QCheckBox;
 	chb1->setChecked(true);
-    connect(chb1, &QCheckBox::toggled, this, [=] (bool) { toggle_object(2); ogl->render(); });
+    connect(chb1, &QCheckBox::toggled, this, [=] (bool) { toggle_object(2); });
     input_layout->addRow( tr("Show Cylinder:"), chb1);
 	auto chb = new QCheckBox;
-    connect(chb, &QCheckBox::toggled, this, [=] (bool) { toggle_object(3); ogl->render(); });
+    connect(chb, &QCheckBox::toggled, this, [=] (bool) { toggle_object(3); });
     input_layout->addRow( tr("Show Plane:"), chb);
 }
 
